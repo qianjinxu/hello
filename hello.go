@@ -9,9 +9,16 @@ package main
 import (
 	"fmt"
 	"github.com/qianjinxu/greetings"
+	"log"
 )
 
 func main() {
-	message := greetings.Hello("Qianjin Xu")
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("")
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(message)
 }
